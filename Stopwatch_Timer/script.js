@@ -4,7 +4,6 @@ let milliseconds = 0;
 let clockColorChangeInterval;
 
 document.getElementById("stopwatch").addEventListener("click", toggleStopwatch);
-document.getElementById("restart").addEventListener("click", restartStopwatch);
 
 function toggleStopwatch() {
     if (!isRunning) {
@@ -17,14 +16,6 @@ function toggleStopwatch() {
         clearInterval(clockColorChangeInterval);
         resetClockStyle();
     }
-}
-
-function restartStopwatch() {
-    stopStopwatch();
-    resetTime();
-    updateDisplay();
-    resetClockStyle();
-    document.querySelector(".datetime p").textContent = "Click to Start";
 }
 
 function startClockColorChange() {
@@ -78,13 +69,6 @@ function incrementTime() {
     document.getElementById("hour").textContent = hours.toString().padStart(2, "0");
     document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
     document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
-}
-
-function resetTime() {
-    milliseconds = 0;
-    document.getElementById("hour").textContent = "00";
-    document.getElementById("minutes").textContent = "00";
-    document.getElementById("seconds").textContent = "00";
 }
 
 function updateDisplay() {
